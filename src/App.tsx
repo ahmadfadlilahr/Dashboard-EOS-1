@@ -86,7 +86,7 @@ export const App: React.FC = () => {
   };
 
   return (
-    <div className="h-screen bg-gray-50 text-gray-900 flex flex-col overflow-hidden">
+    <div className="fixed inset-0 bg-gray-50 text-gray-900 flex flex-col overflow-hidden">
       
       {/* Top Navbar */}
       <Header
