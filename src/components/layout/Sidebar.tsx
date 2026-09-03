@@ -28,42 +28,42 @@ interface NavItem {
 const NAV_ITEMS: NavItem[] = [
   {
     id: 'ai-copilot',
-    label: 'AI Network Copilot',
+    label: 'AI Copilot',
     icon: Bot
   },
   {
     id: 'ticket-generator',
-    label: 'Smart Ticket & Laporan',
+    label: 'Ticket & Laporan',
     icon: FileText
   },
   {
     id: 'ip-master',
-    label: 'IP Config & Routing Master',
+    label: 'Panduan IP & Routing',
     icon: Binary
   },
   {
     id: 'network-tools',
-    label: 'Kalkulator & Tool Jaringan',
+    label: 'Kalkulator Jaringan',
     icon: Calculator
   },
   {
     id: 'telkom-products',
-    label: 'Katalog Layanan Telkom',
+    label: 'Katalog Layanan',
     icon: Layers
   },
   {
     id: 'hardware-matrix',
-    label: 'Hardware & Field Device',
+    label: 'Hardware & Device',
     icon: Server
   },
   {
     id: 'troubleshooting',
-    label: 'Troubleshooting Tree',
+    label: 'Troubleshooting',
     icon: GitFork
   },
   {
     id: 'mikrotik-cheatsheet',
-    label: 'MikroTik Command Sheet',
+    label: 'MikroTik CLI',
     icon: Terminal
   }
 ];
@@ -88,8 +88,8 @@ export const Sidebar: React.FC<SidebarProps> = React.memo(({
       {/* Sidebar Panel */}
       <aside
         className={`fixed top-[53px] bottom-0 left-0 z-40 bg-white border-r border-gray-200 overflow-y-auto lg:translate-x-0 transition-all duration-200 ${
-          mobileMenuOpen ? 'translate-x-0' : '-translate-x-full'
-        } ${sidebarCollapsed ? 'w-16 p-2' : 'w-64 p-4'}`}
+          mobileMenuOpen ? 'translate-x-0 w-full sm:w-72' : '-translate-x-full'
+        } ${sidebarCollapsed ? 'lg:w-16 lg:p-2' : 'lg:w-64 lg:p-4'} p-4`}
       >
         {!sidebarCollapsed && (
           <div className="mb-3 px-2">

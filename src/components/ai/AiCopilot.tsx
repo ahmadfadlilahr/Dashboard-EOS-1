@@ -199,20 +199,16 @@ export const AiCopilot: React.FC<AiCopilotProps> = ({
   ];
 
   return (
-    <div className="flex flex-col h-[calc(100vh-80px)] bg-white rounded-lg border border-gray-200 shadow-sm overflow-hidden">
+    <div className="flex flex-col h-[calc(100dvh-57px)] sm:h-[calc(100vh-80px)] bg-white sm:rounded-lg sm:border sm:border-gray-200 sm:shadow-sm overflow-hidden">
       
       {/* Top Bar inside Copilot */}
-      <div className="flex items-center justify-between px-4 py-3 bg-gray-50 border-b border-gray-200">
-        <div className="flex items-center gap-3">
-          <Bot className="w-5 h-5 text-red-600" />
-          <div>
-            <div className="flex items-center gap-2">
-              <h2 className="text-sm font-semibold text-gray-900">AI Copilot</h2>
-              <span className="text-xs text-gray-500">
-                ({apiSettings.activeProvider.toUpperCase()}: {apiSettings.activeProvider === 'gemini' ? apiSettings.geminiModel : apiSettings.groqModel})
-              </span>
-            </div>
-          </div>
+      <div className="flex items-center justify-between px-3 sm:px-4 py-2.5 bg-gray-50 border-b border-gray-200">
+        <div className="flex items-center gap-2">
+          <Bot className="w-4 h-4 text-red-600" />
+          <h2 className="text-sm font-semibold text-gray-900">AI Copilot</h2>
+          <span className="hidden sm:inline text-xs text-gray-400">
+            {apiSettings.activeProvider === 'gemini' ? apiSettings.geminiModel : apiSettings.groqModel}
+          </span>
         </div>
 
         <div className="flex items-center gap-2">
@@ -236,18 +232,18 @@ export const AiCopilot: React.FC<AiCopilotProps> = ({
       </div>
 
       {/* Messages Container */}
-      <div className="flex-1 overflow-y-auto p-4 space-y-4">
+      <div className="flex-1 overflow-y-auto p-3 sm:p-4 space-y-3 sm:space-y-4">
         
         {/* Quick Presets Carousel */}
         <div className="mb-2">
-          <p className="text-xs font-medium text-gray-500 mb-2">Preset cepat</p>
-          <div className="flex items-center gap-2 overflow-x-auto pb-2 scrollbar-none">
+          <p className="text-xs font-medium text-gray-400 mb-1.5">Preset cepat</p>
+          <div className="flex items-center gap-1.5 sm:gap-2 overflow-x-auto pb-2 scrollbar-none">
             {quickPresets.map((preset, idx) => (
               <button
                 key={idx}
                 onClick={() => handleSendMessage(preset.prompt)}
                 disabled={isLoading}
-                className="shrink-0 px-3 py-1.5 rounded-lg bg-gray-50 hover:bg-gray-100 border border-gray-200 text-sm text-gray-700 hover:text-gray-900 transition-all shadow-sm disabled:opacity-50"
+                className="shrink-0 px-2.5 py-1.5 rounded-lg bg-gray-50 hover:bg-gray-100 border border-gray-200 text-xs sm:text-sm text-gray-600 hover:text-gray-900 transition-all disabled:opacity-50"
               >
                 {preset.title}
               </button>
@@ -277,7 +273,7 @@ export const AiCopilot: React.FC<AiCopilotProps> = ({
 
               {/* Message Bubble */}
               <div
-                className={`max-w-[85%] sm:max-w-[75%] rounded-lg p-4 text-sm leading-relaxed relative ${
+                className={`max-w-[90%] sm:max-w-[75%] rounded-lg p-3 sm:p-4 text-sm leading-relaxed relative ${
                   isUser
                     ? 'bg-gray-100 text-gray-900 rounded-tr-none'
                     : 'bg-white text-gray-900 rounded-tl-none border border-gray-200 shadow-sm'
@@ -362,7 +358,7 @@ export const AiCopilot: React.FC<AiCopilotProps> = ({
       </div>
 
       {/* Input & Upload Area */}
-      <div className="p-3 bg-white border-t border-gray-200 space-y-2">
+      <div className="p-2 sm:p-3 bg-white border-t border-gray-200 space-y-1.5 sm:space-y-2">
         
         {/* Attachment Previews before sending */}
         {attachedFiles.length > 0 && (
@@ -387,7 +383,7 @@ export const AiCopilot: React.FC<AiCopilotProps> = ({
         )}
 
         {/* Input Box */}
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-1.5 sm:gap-2">
           
           {/* File Upload Button */}
           <input
@@ -401,7 +397,7 @@ export const AiCopilot: React.FC<AiCopilotProps> = ({
           <button
             type="button"
             onClick={() => fileInputRef.current?.click()}
-            className="p-2.5 rounded-lg bg-gray-50 hover:bg-gray-100 text-gray-600 hover:text-gray-900 border border-gray-200 transition-colors"
+            className="p-2 sm:p-2.5 rounded-lg bg-gray-50 hover:bg-gray-100 text-gray-500 hover:text-gray-900 border border-gray-200 transition-colors shrink-0"
             title="Upload Foto ONT / Grafik MRTG / Log"
           >
             <Paperclip className="w-4 h-4" />
@@ -418,8 +414,8 @@ export const AiCopilot: React.FC<AiCopilotProps> = ({
                 handleSendMessage();
               }
             }}
-            placeholder="Tanyakan masalah jaringan, minta script MikroTik, atau paste log error..."
-            className="flex-1 px-3 py-2 bg-white border border-gray-200 rounded-lg text-sm text-gray-900 focus:outline-none focus:border-red-500 focus:ring-1 focus:ring-red-500 resize-none max-h-28"
+            placeholder="Ketik pertanyaan..."
+            className="flex-1 min-w-0 px-3 py-2 bg-white border border-gray-200 rounded-lg text-sm text-gray-900 focus:outline-none focus:border-red-500 focus:ring-1 focus:ring-red-500 resize-none max-h-28"
           />
 
           {/* Send Button */}
@@ -427,15 +423,15 @@ export const AiCopilot: React.FC<AiCopilotProps> = ({
             type="button"
             onClick={() => handleSendMessage()}
             disabled={isLoading || (!inputPrompt.trim() && attachedFiles.length === 0)}
-            className="p-2.5 rounded-lg bg-red-600 hover:bg-red-700 text-white disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+            className="p-2 sm:p-2.5 rounded-lg bg-red-600 hover:bg-red-700 text-white disabled:opacity-50 disabled:cursor-not-allowed transition-colors shrink-0"
           >
             <Send className="w-4 h-4" />
           </button>
         </div>
 
-        <div className="flex items-center justify-between text-xs text-gray-500 px-1">
-          <span>Tekan <kbd className="px-1 py-0.5 bg-gray-100 rounded border border-gray-200">Enter</kbd> untuk kirim, <kbd className="px-1 py-0.5 bg-gray-100 rounded border border-gray-200">Shift + Enter</kbd> baris baru</span>
-          <span>Mendukung upload JPG, PNG, WebP, PDF & log terminal</span>
+        <div className="hidden sm:flex items-center justify-between text-xs text-gray-400 px-1">
+          <span>Enter kirim · Shift+Enter baris baru</span>
+          <span>JPG, PNG, WebP, PDF & log</span>
         </div>
 
       </div>

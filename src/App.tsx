@@ -111,7 +111,7 @@ export const App: React.FC = () => {
         />
 
         {/* Main Content Viewport */}
-        <main className={`flex-1 ${sidebarCollapsed ? 'lg:pl-16' : 'lg:pl-64'} p-4 sm:p-6 lg:p-8 max-w-6xl mx-auto w-full transition-all duration-200`}>
+        <main className={`flex-1 ${sidebarCollapsed ? 'lg:pl-16' : 'lg:pl-64'} p-2 sm:p-4 md:p-6 lg:p-8 sm:max-w-6xl mx-auto w-full transition-all duration-200`}>
           <div key={currentTab} className="animate-fade-in">
             {renderActiveModule()}
           </div>
