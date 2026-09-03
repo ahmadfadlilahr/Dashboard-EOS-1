@@ -199,7 +199,7 @@ export const AiCopilot: React.FC<AiCopilotProps> = ({
   ];
 
   return (
-    <div className="flex flex-col h-[calc(100vh-57px)] sm:h-[calc(100vh-80px)] bg-white sm:rounded-lg sm:border sm:border-gray-200 sm:shadow-sm overflow-hidden">
+    <div className="flex flex-col flex-1 min-h-0 bg-white sm:rounded-lg sm:border sm:border-gray-200 sm:shadow-sm overflow-hidden">
       
       {/* Top Bar inside Copilot */}
       <div className="flex items-center justify-between px-3 sm:px-4 py-2.5 bg-gray-50 border-b border-gray-200">
@@ -232,7 +232,7 @@ export const AiCopilot: React.FC<AiCopilotProps> = ({
       </div>
 
       {/* Messages Container */}
-      <div className="flex-1 overflow-y-auto p-3 sm:p-4 space-y-3 sm:space-y-4 flex flex-col justify-end">
+      <div className="flex-1 overflow-y-auto p-3 sm:p-4 space-y-3 sm:space-y-4 min-h-0">
         
         {/* Quick Presets Carousel */}
         <div className="mb-2">
