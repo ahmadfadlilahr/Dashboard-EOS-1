@@ -86,7 +86,7 @@ export const App: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 text-gray-900 flex flex-col">
+    <div className="h-screen bg-gray-50 text-gray-900 flex flex-col overflow-hidden">
       
       {/* Top Navbar */}
       <Header
@@ -99,7 +99,7 @@ export const App: React.FC = () => {
       />
 
       {/* Main Container with Sidebar */}
-      <div className="flex-1 flex">
+      <div className="flex-1 flex overflow-hidden">
         
         {/* Sidebar Nav */}
         <Sidebar
@@ -111,7 +111,7 @@ export const App: React.FC = () => {
         />
 
         {/* Main Content Viewport */}
-        <main className={`flex-1 min-h-0 flex flex-col ${sidebarCollapsed ? 'lg:pl-16' : 'lg:pl-64'} p-2 sm:p-4 md:p-6 lg:p-8 sm:max-w-6xl mx-auto w-full transition-all duration-200`}>
+        <main className={`flex-1 min-h-0 flex flex-col overflow-y-auto ${sidebarCollapsed ? 'lg:pl-16' : 'lg:pl-64'} p-2 sm:p-4 md:p-6 lg:p-8 sm:max-w-6xl mx-auto w-full transition-all duration-200`}>
           <div key={currentTab} className="animate-fade-in flex-1 min-h-0 flex flex-col">
             {renderActiveModule()}
           </div>
